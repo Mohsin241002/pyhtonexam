@@ -1,0 +1,29 @@
+<!-- templates/feedback/feedback_form.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback Form</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h2 class="mt-5">Feedback Form</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+
+        <!-- Display thank you message after successful submission -->
+        {% if thank_you_message %}
+            <div class="alert alert-success mt-3">
+                {{ thank_you_message }}
+            </div>
+        {% endif %}
+
+    </div>
+</body>
+</html>
